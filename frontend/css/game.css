@@ -211,3 +211,7 @@
 .game-status.open{
     color:blue;
 }
+
+.showResult{
+    display: none;
+}

@@ -2,13 +2,14 @@ import pymysql
 ###### https://www.db4free.net/phpMyAdmin/index.php
 
 # Connect to the database
-connection = pymysql.connect(host='db4free.net',
-                             user='<your user>',
-                             password='<your password>',
-                             db='<your db>',
+connection = pymysql.connect(host='localhost',
+                             user='root',
+                             password='filin',
+                             db='pymon',
                              charset='utf8',
                              autocommit=True,
                              cursorclass=pymysql.cursors.DictCursor)
+
 
 
 
