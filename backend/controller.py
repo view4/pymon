@@ -5,8 +5,8 @@ def createGame(name, creator):
     sequence = utils.generateSequence()
     db.newGame(name, creator, sequence)
 
-def createPlayer(name):
-    db.newPlayer(name)
+def createPlayer(name,avatar):
+    db.newPlayer(name, avatar)
 
 def gameExists(game_id):
     return db.getGame(game_id)

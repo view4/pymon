@@ -31,20 +31,29 @@ export default class SimonGame extends React.Component {
     isViewMode(){
         return this.state.user.status == "viewer" && this.state.game.status === "on";
     }
-    myFunk(){
-        return console.log("fdsd")
+    ourFunk(){
+        var status=this.state.game.status;
+        if(status=="won"){
+
+           return <Won/>
+        }else if(status=="failed"){
+            return <Lost/>
+        }else{
+        return(
+            <div className="center">
+                    <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
+                    <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
+                </div>
+        )
+        }
     }
 
 
     render() {
 
         return <div className="main">
-                <div className="center">
-                    <Simon  sequence={this.state.game.sequence} disabled={this.state.user.status != "turn"} showPlayBtn={this.state.user.status == "new"}/>
-                    <Sequence sequence={this.state.game.sequence} step={this.state.game.step} />
-                </div>
-                {this.state.game.status=="won"? <Won/>:null}
-                {this.state.game.status=="failed"? <Lost/>:null}
+            {this.ourFunk()}
+          
                 <div className="side">
                     <div className="game-name">{this.state.game.name}</div>
                     {(this.isViewMode()) && <div className="view-mode" >View mode</div>}

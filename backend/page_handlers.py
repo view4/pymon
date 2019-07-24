@@ -9,11 +9,11 @@ pageHandler = Bottle()
 @jinja2_view('./backend/pages/start.html')
 def start():
     currentPlayer = request.get_cookie("player")
-    if currentPlayer:
+    '''if currentPlayer:
         redirect("/games")
-        return
-    return {"version" : utils.getVersion()}
+        return'''
 
+    return {"version" : utils.getVersion()}
 @pageHandler.get('/games')
 @jinja2_view('./backend/pages/games.html')
 def games():
