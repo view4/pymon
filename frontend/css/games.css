@@ -143,6 +143,7 @@ form{
     padding: 12px;
     background-color: whitesmoke;
     color: #333;
+    width: 30%;
 }
 
 form input[type='submit']{
@@ -198,5 +199,23 @@ nav{
 }
 
 .delete:hover{
+    color: black
+}
+
+footer{
+    display:flex;
+}
+#scoreboard{
+    width: 70%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+#scoreboard span:hover{
+    color: #b6261b
+}
+
+#scoreboard-click{
     color: black
 }

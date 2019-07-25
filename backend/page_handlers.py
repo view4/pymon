@@ -36,3 +36,10 @@ def play(game_id):
 @jinja2_view('./backend/pages/index.html')
 def landing():
     return {"version" : utils.getVersion()}
+
+
+@pageHandler.get('/scoreboard')
+@jinja2_view('./backend/pages/scoreboard.html')
+def scoreboard():
+    scoreboard = [{"name": "Nicky", "score": 100}, {"name": "Aaron", "score": 99}, {"name": "Cefi", "score": 98}]
+    return {"version" : utils.getVersion(), "scoreboard": scoreboard}
