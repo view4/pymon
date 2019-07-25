@@ -215,3 +215,8 @@
 .showResult{
     display: none;
 }
+
+.avatar{
+    height: 2.5rem;
+    border-radius: 51%;
+}
