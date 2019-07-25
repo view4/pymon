@@ -16,7 +16,7 @@ export default class Players extends React.Component {
 
     join(){
         let number = this.state.numberOfPlayers+1;
-        if (number > 0){
+        if (number > 5){
             this.state.message = "players number limit reached!!"
         }else {
             if (this.state.joinClicked){
@@ -30,21 +30,24 @@ export default class Players extends React.Component {
         }
     }
 
-    showAvatar(){
+    showAvatar(avatar){
         let length =  this.props.players.length; 
-            for(let i = 0; i< length; i++){
-                if (this.props.players[i].avatar == "Mr Fish"){
+        console.log(avatar)
+        
+            //for(let i = 0; i< length; i++){
+                //console.log(this.props.players[i].avatar)
+                if (avatar == "Mr Fish"){
                     return images[0]
-                }else if (this.props.players[i].avatar == "Angry Al"){
+                }else if (avatar == "Angry Al"){
                     return images[1]
-                }else if (this.props.players[i].avatar == "The slow Snai"){
-                    return images[4]
-                }else if (this.props.players[i].avatar == "Fine frog"){
+                }else if (avatar == "Slow Snail"){
                     return images[3]
-                }else if (this.props.players[i].avatar == "Groovy goat"){
+                }else if (avatar == "Fine frog"){
+                    return images[4]
+                }else if (avatar == "Groovy goat"){
                     return images[2]
                 }
-            }    
+            //}    
     }
 
     render() {
@@ -59,7 +62,7 @@ export default class Players extends React.Component {
             }
             {this.props.players.map(k => (
                 <li key={k.player} className="player" >
-                <span><img className="avatar" src={this.showAvatar()}></img></span>
+                <span><img className="avatar" src={this.showAvatar(k.avatar)}></img></span>
                 <span className="player-name">{k.player} {(k.player === this.props.userName) ? "(you)":""}</span>
                 <span className={`player-status ${k.status}`}>{k.status}</span>
                 </li>
