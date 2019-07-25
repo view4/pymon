@@ -55,3 +55,8 @@ def getNextPlayer(game_id, last_player):
 
 def updateWonPlayers(game_id):
     return dbutils.updateOrInsert("UPDATE playergame SET status = 'won'  WHERE game = '{}' AND status <> 'failed'".format(game_id))
+
+
+def deleteGame(game_id):
+    dbutils.deleteGame("DELETE from playergame where game = {}".format(game_id))
+    dbutils.deleteGame("DELETE from game where id = {}".format(game_id))

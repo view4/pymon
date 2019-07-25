@@ -56,3 +56,14 @@ def updateOrInsert(sql):
         print(repr(e))
         pass
     return success
+
+def deleteGame(sql):
+    result = None
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(sql)
+    except Exception as e:
+        print (repr(e))
+        pass
+    return result
+

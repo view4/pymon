@@ -20,7 +20,11 @@
         <div class="game-bottom">
             {{g.name}}
         </div>
-     
+        {%if g.creator == currentPlayer%}
+        <div class="delete">
+            Delete
+        </div>
+        {% endif %}
     </a>
 {% else %}
     <div class="no-games">No available games :(</div>
@@ -32,6 +36,9 @@
         <label>Name:<input type="text" name="name" required></label>
         <input type="submit" class="clickable" value="Create" />
     </form>
+    <a id="scoreboard" href="/scoreboard"><span id="scoreboard-click">Scoreboard</span></a>
 </footer>
 </div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="/js/filter_and_delete.js"></script>
 {% endblock %}

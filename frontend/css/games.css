@@ -143,6 +143,7 @@ form{
     padding: 12px;
     background-color: whitesmoke;
     color: #333;
+    width: 30%;
 }
 
 form input[type='submit']{
@@ -180,4 +181,41 @@ nav{
     font-size: 20px;
     font-family: Arial;
     color: #999;
+}
+
+.hidden {
+    display: none;
+}
+
+.delete{
+    color: white;
+    background-color: #A52A2B;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    min-width:150px;
+    max-width: 150px;
+    margin-top: 5px;
+}
+
+.delete:hover{
+    color: black
+}
+
+footer{
+    display:flex;
+}
+#scoreboard{
+    width: 70%;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+}
+
+#scoreboard span:hover{
+    color: #b6261b
+}
+
+#scoreboard-click{
+    color: black
 }

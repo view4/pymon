@@ -1,0 +1,24 @@
+{% extends "./backend/pages/base.html" %}
+{% block title %} Scoreboad{% endblock %}
+{% block head %}
+<link href="/css/scoreboard.css?v={{version}}" rel="stylesheet">
+{% endblock %}
+{% block app %}
+<div class="page">
+    <header>
+        <h1>Scoreboard</h1>
+    </header>
+    <main class="scoreboard">
+        <ol>
+        {% for p in scoreboard%}
+            <li>{{p.name}}: {{p.score}}</li>
+        {% endfor %}
+        </ol>
+    </main>
+    <footer>
+        <a class="return" href="/start">Return to Games</a>
+    </footer>
+</div>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="/js/scoreboard.js"></script>
+{% endblock %}
