@@ -10,7 +10,7 @@ export default class Simon extends React.Component {
         this.state = {activeBtn:"none", sequenceStep:0};
         this.sounds = {};
         BUTTONS.map(b => {
-            this.sounds[b] = new Audio(`/sounds/${b}.mp3`);
+            this.sounds[b] = new Audio(`https://1372648838.rsc.cdn77.org/sounds/${b}.mp3`);
         });
     }
 
