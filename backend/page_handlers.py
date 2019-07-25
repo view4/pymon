@@ -21,7 +21,7 @@ def games():
     if not currentPlayer:
         redirect("/start")
         return
-    return {"version" : utils.getVersion(), "games": controller.listGames()}
+    return {"version" : utils.getVersion(), "games": controller.listGames(), "currentPlayer": currentPlayer}
 
 @pageHandler.get('/games/<game_id>')
 @jinja2_view('./backend/pages/game.html')
