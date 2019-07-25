@@ -34,9 +34,12 @@ export default class SimonGame extends React.Component {
     ourFunk(){
         var status=this.state.game.status;
         if(status=="won"){
-
+           let myEl = document.querySelector('.side');
+           myEl.style.display = "none"
            return <Won/>
         }else if(status=="failed"){
+            let myEl = document.querySelector('.side');
+            myEl.style.display = "none"
             return <Lost/>
         }else{
         return(

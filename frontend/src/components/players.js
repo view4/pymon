@@ -9,25 +9,30 @@ let images = ['https://thumbs-prod.si-cdn.com/qXrJJ-l_jMrQbARjnToD0fi-Tsg=/800x6
 export default class Players extends React.Component {
     constructor(props){
         super(props);
-        this.state = {joinClicked:false};
+        this.state = {joinClicked:false,
+             numberOfPlayers: 0,
+             message: "Join"}; 
     }
 
     join(){
-        if (this.state.joinClicked){
-            return;
+        let number = this.state.numberOfPlayers+1;
+        if (number > 0){
+            this.state.message = "players number limit reached!!"
+        }else {
+            if (this.state.joinClicked){
+                return;
+            }
+            this.setState(() => ({
+                joinClicked:true
+            }), () => { 
+                ajax(`/games/${getGameId()}/players`,{method: 'POST'});
+            });
         }
-        this.setState(() => ({
-            joinClicked:true
-        }), () => { 
-            ajax(`/games/${getGameId()}/players`,{method: 'POST'});
-        });
     }
 
     showAvatar(){
         let length =  this.props.players.length; 
-        console.log(length)
             for(let i = 0; i< length; i++){
-                console.log(this.props.players[i])
                 if (this.props.players[i].avatar == "Mr Fish"){
                     return images[0]
                 }else if (this.props.players[i].avatar == "Angry Al"){
@@ -48,7 +53,8 @@ export default class Players extends React.Component {
             <h3>Players</h3><ul className="players">
             {this.props.showJoinBtn &&
             <button className={`join-btn ${(this.state.joinClicked) ? "loading" : ""}`} onClick={this.join.bind(this)}>
-            {(this.state.joinClicked) ? <Loader />: "Join!" }
+            
+            {(this.state.joinClicked) ? <Loader />: this.state.message }
             </button>
             }
             {this.props.players.map(k => (

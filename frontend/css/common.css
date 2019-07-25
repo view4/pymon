@@ -127,3 +127,16 @@ ul{
       transform: translate(19px, 0);
     }
   }
+
+  .header{
+    color: red; 
+    text-align: center;
+    font-size: 4rem; 
+  }
+
+  .header-father{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
