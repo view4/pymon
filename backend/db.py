@@ -56,3 +56,7 @@ def updateWonPlayers(game_id):
 def deleteGame(game_id):
     dbutils.deleteGame("DELETE from playergame where game = {}".format(game_id))
     dbutils.deleteGame("DELETE from game where id = {}".format(game_id))
+
+def getScoreboard():
+    return dbutils.getScoreboard("Select player, count(status) as c from playergame where status='won' "
+                                 "group by player order by count(status) desc limit 10")

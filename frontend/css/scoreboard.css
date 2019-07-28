@@ -18,6 +18,10 @@ h1{
     color: black;
 }
 
+.return:hover{
+    color: #b6261b;
+}
+
 footer{
     text-align: center;
 }

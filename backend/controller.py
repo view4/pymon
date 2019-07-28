@@ -87,3 +87,6 @@ def win(game_id, newStep):
 
 def deleteGame(game_id):
     db.deleteGame(game_id)
+
+def getScoreboard():
+    return db.getScoreboard()

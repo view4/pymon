@@ -62,7 +62,16 @@ def deleteGame(sql):
         with connection.cursor() as cursor:
             cursor.execute(sql)
     except Exception as e:
-        print (repr(e))
+        print(repr(e))
         pass
     return result
 
+def getScoreboard(sql):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(sql)
+            result = cursor.fetchall()
+    except Exception as e:
+        print(repr(e))
+        pass
+    return result
